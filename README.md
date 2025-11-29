@@ -1,4 +1,4 @@
-# 📘 Dự án AI: Dự đoán rủi ro vỡ nợ tín dụng để tăng cường an toàn phục vụ cho quy trình xét duyệt vay tự động
+# Dự án AI: Dự đoán rủi ro vỡ nợ tín dụng để tăng cường an toàn phục vụ cho quy trình xét duyệt vay tự động
 
 ## 👥 Thành viên nhóm  
 **Nhóm 10**
