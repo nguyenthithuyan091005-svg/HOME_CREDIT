@@ -34,13 +34,14 @@ HOME_CREDIT/
 │   ├── shap_values_100.csv              # SHAP values của 100 khách hàng
 │   ├── risk_scores_100.csv              # Credit Score
 │   ├── top30_features_100.csv           # 30 đặc trưng mạnh nhất
-│   ├── top5_per_customer_100.csv        # 5 đặc trưng quan trọng nhất theo khách hàng
+│   ├── top5_per_customer_100.csv        # 5 đặc trưng quan trọng nhất theo từng khách hàng
 │
-├── EDA.ipynb                        # Phân tích EDA
-├── feature-engineering.ipynb        # Tiền xử lý & tạo features
-├── fairness.ipynb                   # Kiểm tra Fairness mô hình
-├── latest_aiproject.ows             # Mô hình xây dựng bằng Orange
-├── explain_100/                     # Giải thích kết quả cho 100 khách hàng
+├── EDA.ipynb                           # Phân tích EDA
+├── feature-engineering.ipynb            # Tiền xử lý & tạo features
+├── fairness.ipynb                       # Kiểm tra Fairness mô hình
+├── latest_aiproject.ows                 # Mô hình xây dựng bằng Orange
+│
+├── explain_100/                         # Giải thích kết quả cho 100 khách hàng
 │
 ├── README.md
 └── .gitignore
