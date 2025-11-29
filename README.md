@@ -13,7 +13,6 @@
 
 ---
 ## 📁 Cấu trúc thư mục của dự án
-## 📁 Cấu trúc dự án
 
 ```text
 HOME_CREDIT/
