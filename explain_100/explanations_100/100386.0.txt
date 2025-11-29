@@ -1,0 +1,39 @@
+**1️⃣ Tổng quan rủi ro (Risk Score)**
+
+- Risk Score (xác suất rủi ro): 0.306
+
+Giải thích:
+- Đây là xác suất mô hình dự đoán khách hàng không trả được nợ đúng hạn.
+- Giá trị càng gần 1 thì rủi ro càng cao, càng gần 0 thì rủi ro càng thấp.
+- Các ngưỡng dưới đây chỉ mang tính minh họa trong phạm vi bài toán học thuật (không phải quy định chính thức của tổ chức tín dụng):
+  + > 0.5  → Nhóm rủi ro cao → cần thẩm định bổ sung rất kỹ trước khi duyệt.
+  + 0.3 – 0.5 → Nhóm rủi ro trung bình → cần xem thêm giấy tờ, kiểm tra thu nhập, lịch sử vay.
+  + < 0.3 → Nhóm rủi ro thấp → khách hàng có khả năng trả nợ tốt hơn, nhưng vẫn cần quy trình kiểm tra rõ ràng.
+
+Đánh giá: Khách hàng này có 30,6% khả năng rủi ro không trả nợ, thuộc nhóm rủi ro trung bình theo các ngưỡng minh họa trên, Cần xem thêm giấy tờ chứng minh thu nhập, sao kê tài khoản, lịch sử vay và các thông tin bổ sung trước khi ra quyết định.
+
+**2️⃣ Top 5 yếu tố ảnh hưởng mạnh nhất đến quyết định cho vay hồ sơ khách hàng 100386.0**
+
+Dưới đây là 5 biến quan trọng nhất (theo SHAP) mà mô hình dùng để ra quyết định cho khách hàng này, kèm giá trị cụ thể:
+
+- **BUREAU_STATUS_C_SUM_SUM** – Tổng số lần nợ xấu (trạng thái C - rủi ro cao) trong lịch sử tín dụng
+  - Giá trị hiện tại: 36.0
+  - Ý nghĩa nghiệp vụ: Tổng số lần nợ xấu (trạng thái C - rủi ro cao) trong lịch sử tín dụng. Biến này đo tổng số lần khách hàng bị ghi nhận ở trạng thái nợ xấu (C - rủi ro cao) trong toàn bộ lịch sử tín dụng. Giá trị càng cao cho thấy lịch sử nợ xấu nhiều, làm tăng rủi ro không trả nợ.
+
+- **AMT_ANNUITY** – Số tiền khách hàng phải trả góp định kỳ cho khoản vay hiện tại
+  - Giá trị hiện tại: 13383.0
+  - Ý nghĩa nghiệp vụ: Số tiền khách hàng phải trả góp định kỳ cho khoản vay hiện tại. Số tiền khách hàng phải trả góp theo kỳ cho khoản vay hiện tại. Nếu con số này lớn so với thu nhập thực tế, áp lực trả nợ sẽ cao → tăng rủi ro.
+
+- **BUREAU_CREDIT_ACTIVE_ACTIVE_MEAN** – Tỷ lệ các khoản vay đang còn hoạt động trong lịch sử tín dụng
+  - Giá trị hiện tại: 0.6666666666666666
+  - Ý nghĩa nghiệp vụ: Tỷ lệ các khoản vay đang còn hoạt động trong lịch sử tín dụng. Tỷ lệ khoản vay hiện còn đang hoạt động. Tỷ lệ quá cao có thể cho thấy khách hàng đang gánh nhiều khoản vay cùng lúc.
+
+- **BUREAU_STATUS_C_MAX_SUM** – Giá trị nợ xấu lớn nhất (trạng thái C - rủi ro cao) trong các khoản vay
+  - Giá trị hiện tại: 2.0
+  - Ý nghĩa nghiệp vụ: Giá trị nợ xấu lớn nhất (trạng thái C - rủi ro cao) trong các khoản vay. Đại diện cho lần nợ xấu nghiêm trọng nhất. Giá trị cao cho thấy từng có giai đoạn khách hàng chậm trả hoặc không trả nợ đáng kể, làm tăng rủi ro.
+
+- **PREV_AMT_CREDIT_MIN** – Khoản vay nhỏ nhất trong các hợp đồng vay trước đây
+  - Giá trị hiện tại: 0.0
+  - Ý nghĩa nghiệp
+
+Kết luận tạm thời: Khách hàng thuộc nhóm rủi ro trung bình theo ngưỡng minh họa. Không nên phê duyệt tự động. Cần thẩm định bổ sung hồ sơ, kiểm tra kỹ thu nhập, nghĩa vụ trả nợ hiện tại và lịch sử vay trước khi ra quyết định.

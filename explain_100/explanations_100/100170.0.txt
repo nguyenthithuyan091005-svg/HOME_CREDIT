@@ -1,0 +1,38 @@
+**1️⃣ Tổng quan rủi ro (Risk Score)**
+
+- Risk Score (xác suất rủi ro): 0.750
+
+Giải thích:
+- Đây là xác suất mô hình dự đoán khách hàng không trả được nợ đúng hạn.
+- Giá trị càng gần 1 thì rủi ro càng cao, càng gần 0 thì rủi ro càng thấp.
+- Các ngưỡng dưới đây chỉ mang tính minh họa trong phạm vi bài toán học thuật (không phải quy định chính thức của tổ chức tín dụng):
+  + > 0.5  → Nhóm rủi ro cao → cần thẩm định bổ sung rất kỹ trước khi duyệt.
+  + 0.3 – 0.5 → Nhóm rủi ro trung bình → cần xem thêm giấy tờ, kiểm tra thu nhập, lịch sử vay.
+  + < 0.3 → Nhóm rủi ro thấp → khách hàng có khả năng trả nợ tốt hơn, nhưng vẫn cần quy trình kiểm tra rõ ràng.
+
+Đánh giá: Khách hàng này có 75,0% khả năng rủi ro không trả nợ, thuộc nhóm rủi ro cao theo các ngưỡng minh họa trên, Cần được thẩm định bổ sung rất kỹ (thu nhập, lịch sử vay, tài sản bảo đảm) trước khi ra quyết định phê duyệt khoản vay.
+
+**2️⃣ Top 5 yếu tố ảnh hưởng mạnh nhất đến quyết định cho vay hồ sơ khách hàng 100170.0**
+
+Dưới đây là 5 biến quan trọng nhất (theo SHAP) mà mô hình dùng để ra quyết định cho khách hàng này, kèm giá trị cụ thể:
+
+- **BUREAU_STATUS_C_SUM_SUM** – Tổng số lần nợ xấu (trạng thái C - rủi ro cao) trong lịch sử tín dụng
+  - Giá trị hiện tại: 76.0
+  - Ý nghĩa nghiệp vụ: Tổng số lần nợ xấu (trạng thái C - rủi ro cao) trong lịch sử tín dụng. Biến này đo tổng số lần khách hàng bị ghi nhận ở trạng thái nợ xấu (C - rủi ro cao) trong toàn bộ lịch sử tín dụng. Giá trị càng cao cho thấy lịch sử nợ xấu nhiều, làm tăng rủi ro không trả nợ.
+  - Giải thích: Giá trị 76.0 cho thấy khách hàng có lịch sử nợ xấu nhiều, làm tăng rủi ro không trả nợ.
+
+- **BUREAU_STATUS_C_MAX_SUM** – Giá trị nợ xấu lớn nhất (trạng thái C - rủi ro cao) trong các khoản vay
+  - Giá trị hiện tại: 4.0
+  - Ý nghĩa nghiệp vụ: Giá trị nợ xấu lớn nhất (trạng thái C - rủi ro cao) trong các khoản vay. Đại diện cho lần nợ xấu nghiêm trọng nhất. Giá trị cao cho thấy từng có giai đoạn khách hàng chậm trả hoặc không trả nợ đáng kể, làm tăng rủi ro.
+  - Giải thích: Giá trị 4.0 cho thấy khách hàng từng có lần nợ xấu nghiêm trọng, làm tăng rủi ro không trả nợ.
+
+- **AMT_ANNUITY** – Số tiền khách hàng phải trả góp định kỳ cho khoản vay hiện tại
+  - Giá trị hiện tại: 42493.5
+  - Ý nghĩa nghiệp vụ: Số tiền khách hàng phải trả góp định kỳ cho khoản vay hiện tại. Số tiền khách hàng phải trả góp theo kỳ cho khoản vay hiện tại. Nếu con số này lớn so với thu nhập thực tế, áp lực trả nợ sẽ cao → tăng rủi ro.
+  - Giải thích: Giá trị 42493.5 cho thấy khách hàng phải trả góp một số tiền lớn định kỳ, làm tăng áp lực trả nợ và rủi ro không trả nợ.
+
+- **PREV_AMT_CREDIT_MIN** – Khoản vay nhỏ nhất trong các hợp đồng vay trước đây
+  - Giá trị hiện tại: 0.0
+  - Ý nghĩa
+
+Kết luận tạm thời: Khách hàng thuộc nhóm rủi ro cao theo ngưỡng minh họa. Không nên phê duyệt tự động. Cần thẩm định bổ sung rất kỹ, có thể xem xét giảm hạn mức vay, yêu cầu thêm tài sản bảo đảm hoặc các điều kiện ràng buộc khác nếu vẫn muốn hỗ trợ khách hàng.

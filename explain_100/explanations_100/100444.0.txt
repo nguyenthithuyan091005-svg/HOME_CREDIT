@@ -1,0 +1,35 @@
+**1️⃣ Tổng quan rủi ro (Risk Score)**
+
+- Risk Score (xác suất rủi ro): 0.536
+- Đây là xác suất mô hình dự đoán khách hàng không trả được nợ đúng hạn.
+- Giá trị càng gần 1 thì rủi ro càng cao, càng gần 0 thì rủi ro càng thấp.
+- Các ngưỡng dưới đây chỉ mang tính minh họa trong phạm vi bài toán học thuật (không phải quy định chính thức của tổ chức tín dụng):
+  + > 0.5  → Nhóm rủi ro cao → cần thẩm định bổ sung rất kỹ trước khi duyệt.
+  + 0.3 – 0.5 → Nhóm rủi ro trung bình → cần xem thêm giấy tờ, kiểm tra thu nhập, lịch sử vay.
+  + < 0.3 → Nhóm rủi ro thấp → khách hàng có khả năng trả nợ tốt hơn, nhưng vẫn cần quy trình kiểm tra rõ ràng.
+- Đánh giá: Khách hàng này có 53,6% khả năng rủi ro không trả nợ, thuộc nhóm rủi ro cao theo các ngưỡng minh họa trên, Cần được thẩm định bổ sung rất kỹ (thu nhập, lịch sử vay, tài sản bảo đảm) trước khi ra quyết định phê duyệt khoản vay.
+
+**2️⃣ Top 5 yếu tố ảnh hưởng mạnh nhất đến quyết định cho vay hồ sơ khách hàng 100444.0**
+
+Dưới đây là 5 biến quan trọng nhất (theo SHAP) mà mô hình dùng để ra quyết định cho khách hàng này, kèm giá trị cụ thể:
+
+- **BUREAU_STATUS_C_SUM_SUM** – Tổng số lần nợ xấu (trạng thái C - rủi ro cao) trong lịch sử tín dụng
+  - Giá trị hiện tại: 0.0
+  - Ý nghĩa nghiệp vụ: Tổng số lần nợ xấu (trạng thái C - rủi ro cao) trong lịch sử tín dụng. Biến này đo tổng số lần khách hàng bị ghi nhận ở trạng thái nợ xấu (C - rủi ro cao) trong toàn bộ lịch sử tín dụng. Giá trị càng cao cho thấy lịch sử nợ xấu nhiều, làm tăng rủi ro không trả nợ.
+  - Giải thích: Giá trị 0.0 cho thấy khách hàng chưa từng có lịch sử nợ xấu, làm giảm rủi ro không trả nợ.
+
+- **DAYS_BIRTH** – Tuổi khách hàng (tính từ ngày sinh)
+  - Giá trị hiện tại: -9731
+  - Ý nghĩa nghiệp vụ: Tuổi khách hàng (tính từ ngày sinh). Số ngày tính từ ngày sinh. Trị tuyệt đối càng lớn thì tuổi càng cao. Độ tuổi có thể liên quan đến sự ổn định thu nhập và hành vi tín dụng.
+  - Giải thích: Giá trị -9731 cho thấy khách hàng đã qua tuổi 30, có thể đã ổn định thu nhập và hành vi tín dụng, làm giảm rủi ro không trả nợ.
+
+- **BUREAU_STATUS_C_SUM_MEAN** – Trung bình số lần nợ xấu (trạng thái C - rủi ro cao) trên các khoản vay
+  - Giá trị hiện tại: 0.0
+  - Ý nghĩa nghiệp vụ: Trung bình số lần nợ xấu (trạng thái C - rủi ro cao) trên các khoản vay. Số lần nợ xấu (C) trung bình trên mỗi khoản vay. Giá trị cao cho thấy không chỉ một mà nhiều khoản vay của khách hàng có vấn đề → tăng rủi ro.
+  - Giải thích: Giá trị 0.0 cho thấy khách hàng chưa từng có lịch sử nợ xấu trên các khoản vay, làm giảm rủi ro không trả nợ.
+
+- **AMT_ANNUITY** – Số tiền khách hàng phải trả góp định kỳ cho khoản vay hiện tại
+  - Giá trị hiện tại: 16443.0
+  - Ý nghĩa nghiệp vụ: Số tiền
+
+Kết luận tạm thời: Khách hàng thuộc nhóm rủi ro cao theo ngưỡng minh họa. Không nên phê duyệt tự động. Cần thẩm định bổ sung rất kỹ, có thể xem xét giảm hạn mức vay, yêu cầu thêm tài sản bảo đảm hoặc các điều kiện ràng buộc khác nếu vẫn muốn hỗ trợ khách hàng.
