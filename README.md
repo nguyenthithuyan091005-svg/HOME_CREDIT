@@ -2,13 +2,12 @@
 
 ## 👥 Thành viên nhóm  
 **Nhóm 10**
-
+- Trần Thị Thanh Hoa (31231026119) - Leader
 - Trịnh Thị Lan Anh (31231025048)  
 - Nguyễn Thị Thúy An (31231024410)  
 - Nguyễn Thị Mỹ Thảo (31231025046)  
 - Phan Thụy Kiến An (31231021959)  
-- Nguyễn Thị Huỳnh Như (31231570390)  
-- Trần Thị Thanh Hoa (31231026119)  
+- Nguyễn Thị Huỳnh Như (31231570390)   
 - Trương Ngọc Như Ý (31231025497)
 
 ---
